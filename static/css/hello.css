@@ -1,0 +1,22 @@
+html, body {
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+}
+
+.text p {
+  margin-top: 25px;
+}
+a.button {
+  margin-top: 25px;
+}
