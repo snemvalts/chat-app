@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/chat.css">
+{% endblock %}
+
+{% block body %}
+  <h1>chat app 1.0</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+  <a onclick="sendMessage()" class="button">send message to server</a>
+  <script src="/static/js/chat.js"></script>
+{% endblock %}
