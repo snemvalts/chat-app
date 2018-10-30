@@ -21,7 +21,8 @@ def chat():
 @socketio.on('message_sent')
 def handle_message(message):
     print('MESSAGE RECEIVED')
-    emit('message_received', {'data':'yooo'})
+    print(message)
+    emit('message_received', {'message': message['message']}, broadcast=True)
 
 if __name__ == '__main__':
     socketio.run(app)

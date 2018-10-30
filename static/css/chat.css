@@ -5,3 +5,16 @@ html, body {
 a.button {
   margin-top: 20px;
 }
+
+.chat-container {
+  max-height: 100px;
+  width: 200px;
+  overflow-y: scroll;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--darker-background-gray);
+}
+
+.chat-container .message {
+  font-family: monospace;
+}
