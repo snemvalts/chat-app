@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block body %}
-  <h1>chat app 1.0</h1>
-  <div class="text">
-    <p>what's up, click the button below to get started</p>
-    <a class="button primary sign-up" type="button" href="/chat/">get started</a>
+  <div class="container">
+    <h1>chat app 1.0</h1>
+    <input placeholder="Username" type="text" class="username" value="">
+    <input placeholder="Contact" type="text" class="contact" value="">
+    <a class="button primary sign-up" onclick="setUsername()" type="button" href="/chat/">
+      <p>CHAT</p>
+    </a>
   </div>
 {% endblock %}

@@ -5,33 +5,34 @@
 
 /* variables */
 :root {
-  --background-gray: #FAFAFA;
-  --darker-background-gray: #eee;
+  --background-white: #DBE9EE;
+  --columbian-blue: #C0D6DF;
   --text-color: #616161;
   --default-gray: #E0E0E0;
   --darker-gray: #9E9E9E;
   --active-green: #69F0AE;
+  --navy-blue: #266DD3;
+  --sapphire: #166088;
 }
 
 html, body {
   font-family: sans-serif;
   min-height: 100vh;
-  background-color: #FAFAFA;
+  background-color: var(--background-white);
 }
 
 a.button {
-  border-radius: 6px;
   display: inline-block;
-  color: var(--text-color);
+  text-align: center;
+  color: #fff;
+  background-color: var(--navy-blue);
   user-select: none;
   cursor: pointer;
   font-size: 18px;
-  padding: 6px 16px;
-  transition: 0.3s all;
-  border: 3px solid var(--darker-background-gray);
+  transition: 0.2s all;
   text-decoration: none;
 }
 
 a.button:active{
-  background-color: var(--darker-background-gray);
+  background-color: #fff;
 }

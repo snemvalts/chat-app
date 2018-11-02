@@ -1,8 +1,6 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
-from flask_socketio import SocketIO, send, emit
-
-
+from flask_socketio import SocketIO, send, emit, Namespace
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -17,6 +15,12 @@ def hello():
 @app.route("/chat/")
 def chat():
     return render_template('chat.html')
+
+@socketio.on('connected')
+def connected(i):
+    print('CONNECTED:')
+    print(request.sid)
+    print(i)
 
 @socketio.on('message_sent')
 def handle_message(message):
