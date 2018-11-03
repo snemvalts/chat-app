@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block body %}
-  <h1>chat app 1.0</h1>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
-  <div class="chat-container">
+  <div class="container">
+    <h1>contact</h1>
+    <div class="chat-container">
 
+    </div>
+    <div class="input-box">
+      <input type="text" class="text-input" value="">
+      <a onclick="sendMessage()" class="button">
+        <p>SEND</p>
+      </a>
+    </div>
   </div>
-  <input type="text" class="text-input" value="">
-  <a onclick="sendMessage()" class="button">send message to server</a>
   <script src="/static/js/chat.js"></script>
 {% endblock %}
