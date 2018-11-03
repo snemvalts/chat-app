@@ -7,26 +7,34 @@ socketio = SocketIO(app)
 
 app.config['SECRET_KEY'] = 'secret!'
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['DEBUG'] = True
+
+users = {}
 
 @app.route("/")
 def hello():
     return render_template('hello.html')
 
-@app.route("/chat/")
+@app.route("/chat")
 def chat():
     return render_template('chat.html')
 
-@socketio.on('connected')
-def connected(i):
-    print('CONNECTED:')
-    print(request.sid)
-    print(i)
-
-@socketio.on('message_sent')
+@socketio.on('message_sent', "/chat")
 def handle_message(message):
     print('MESSAGE RECEIVED')
     print(message)
     emit('message_received', {'message': message['message']}, broadcast=True)
+
+@socketio.on('username', namespace="/private")
+def receive_username(username):
+    users[username] = request.sid
+    print('CONNECTED: ' + username)
+    print(users)
+
+@socketio.on('contact', namespace="/private")
+def user_connected(recipient):
+    recipient_sid = users[recipient]
+    emit('contacted', recipient, room=recipient_sid)
 
 if __name__ == '__main__':
     socketio.run(app)

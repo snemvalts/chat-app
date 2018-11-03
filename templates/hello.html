@@ -8,9 +8,13 @@
   <div class="container">
     <h1>chat app 1.0</h1>
     <input placeholder="Username" type="text" class="username" value="">
-    <input placeholder="Contact" type="text" class="contact" value="">
-    <a class="button primary sign-up" onclick="setUsername()" type="button" href="/chat/">
+    <a class="button primary sign-up" onclick="sendUsername()" type="button">
+      <p>SET</p>
+    </a>
+    <input placeholder="Contact" type="text" class="recipient" value="">
+    <a class="button primary sign-up" onclick="startChat()" type="button">
       <p>CHAT</p>
     </a>
   </div>
+  <script src="/static/js/hello.js"></script>
 {% endblock %}

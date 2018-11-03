@@ -1,20 +1,14 @@
-let socket = io.connect('http://' + document.domain + ':' + location.port);
-let socket_messages = io.connect('http://' + document.domain + ':' + location.port + '/chat');
+var socket_chat = io.connect('http://' + document.domain + ':' + location.port + '/chat');
 
 const textInput = document.querySelector('.text-input');
 const chatContainer = document.querySelector('.chat-container');
 
 function sendMessage(){
-  socket.emit('message_sent', {message: textInput.value});
+  socket_chat.emit('message_sent', {message: textInput.value});
   textInput.value = '';
 }
 
-socket.on('connect', function() {
-  console.log('connected');
-  socket.emit('connected', 'lol');
-});
-
-socket.on('message_received', function(i) {
+socket_chat.on('message_received', function(i) {
   const messageDiv = document.createElement('p');
   const messageContent = document.createTextNode(i.message);
   console.log(i);
