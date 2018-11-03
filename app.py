@@ -34,7 +34,12 @@ def receive_username(username):
 @socketio.on('contact', namespace="/private")
 def user_connected(recipient):
     recipient_sid = users[recipient]
-    emit('contacted', recipient, room=recipient_sid)
+
+    for name in users:
+        if users.get(name) == request.sid:
+            user = name
+
+    emit('contacted', user, room=recipient_sid)
 
 if __name__ == '__main__':
     socketio.run(app)
