@@ -4,6 +4,10 @@ let private_socket = io.connect('http://' + document.domain + ':' + location.por
 const textInput = document.querySelector('.text-input');
 const chatContainer = document.querySelector('.chat-container');
 
+const chat_container = document.querySelector('.chat');
+const controls_container = document.querySelector('.controls');
+chat_container.style = "display: none";
+
 function sendMessage(){
   console.log(textInput.value);
   socket.emit('message_sent', {message: textInput.value});
@@ -33,4 +37,6 @@ function startChat() {
 
 private_socket.on('contacted', function(sender){
   alert("You are now talking with " + sender + ".");
+  controls_container.style = "display: none";
+  chat_container.style = "";
 });

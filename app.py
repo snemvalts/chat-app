@@ -16,10 +16,6 @@ chat_pairs = {}
 def hello():
     return render_template('app.html')
 
-@app.route("/chat")
-def chat():
-    return render_template('chat.html')
-
 @socketio.on('message_sent')
 def handle_message(message):
     for i in chat_pairs:
