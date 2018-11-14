@@ -33,6 +33,8 @@ function sendUsername() {
 
 function startChat() {
   private_socket.emit("contact", recipient.value);
+  controls_container.style = "display: none";
+  chat_container.style = "";
 }
 
 private_socket.on('contacted', function(sender){
