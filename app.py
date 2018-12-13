@@ -61,6 +61,7 @@ def user_connected(recipient):
     for name in users:
         print(name)
         if users.get(name) == request.sid:
+            print('found user')
             user = name
 
     chat_pairs[request.sid] = recipient_sid
@@ -73,8 +74,8 @@ def user_connected(recipient):
 
     for i in cursor:
         print(i, recipient_sid, request.sid)
-        emit('message_received', {'message': i[2], 'sender': i[0]}, room = recipient_sid)
-        emit('message_received', {'message': i[2], 'sender': i[0]}, room = request.sid)
+        emit('message_received', {'message': i[2], 'sender': i[0]}, room = recipient_sid, namespace="")
+        emit('message_received', {'message': i[2], 'sender': i[0]}, room = request.sid, namespace="")
 
 
 
